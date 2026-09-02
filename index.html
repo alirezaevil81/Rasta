@@ -10,105 +10,107 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="رستا | روزشمار و همراه ترک عادت">
   <meta property="og:description" content="همراه هوشمند، آفلاین و امن شما در مسیر ترک عادات ناخواسته، سنجش روزهای پاکی، بهبود سلامت و محاسبه پس‌انداز مالی.">
-  <meta property="og:image" content="/images/logo.png">
+  <meta property="og:image" content="./assets/images/logo.png">
   
   <!-- Favicon and App Icon -->
-  <link rel="icon" type="image/png" href="/images/logo.png">
-  <link rel="apple-touch-icon" href="/images/logo.png">
+  <link rel="icon" type="image/png" href="./assets/images/logo.png">
+  <link rel="apple-touch-icon" href="./assets/images/logo.png">
   
-  <!-- External CSS -->
-  <link rel="stylesheet" href="/src/css/style.css">
+  <!-- Google Fonts: Vazirmatn CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- External Pure Raw CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
   
   <!-- External JS Script -->
-  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
 </head>
-<body class="bg-[#F4FBF7] text-[#1E293B] font-sans antialiased selection:bg-brand-100 selection:text-brand-900 min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body>
 
   <!-- Page Preloader -->
-  <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#F4FBF7] transition-opacity duration-500 ease-out select-none">
-    <div class="relative flex items-center justify-center mb-4">
-      <div class="absolute w-20 h-20 rounded-full border-2 border-emerald-500/20 border-t-emerald-600 animate-spin"></div>
-      <img src="/images/logo.png" alt="رستا" class="w-12 h-12 rounded-2xl object-contain bg-white shadow-md p-1.5 border border-emerald-100 relative z-10 animate-pulse">
+  <div id="preloader">
+    <div class="preloader-spinner-wrapper">
+      <div class="preloader-spinner"></div>
+      <img src="./assets/images/logo.png" alt="رستا" class="preloader-logo">
     </div>
-    <span class="text-slate-800 font-extrabold text-base tracking-wide">رستا (Rasta)</span>
-    <span class="text-xs text-emerald-700 font-medium mt-1">در حال بارگذاری...</span>
+    <span class="preloader-title">رستا (Rasta)</span>
+    <span class="preloader-subtitle">در حال بارگذاری...</span>
   </div>
 
   <!-- Hero Section -->
-  <main class="w-full min-h-screen min-h-[100dvh] max-w-4xl mx-auto px-4 sm:px-6 py-12 flex flex-col items-center justify-center text-center relative">
+  <main class="hero-container">
     
     <!-- Subtle Background Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[500px] sm:h-[500px] bg-emerald-200/25 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    <div class="hero-glow"></div>
 
     <!-- Top App Logo Icon -->
-    <div class="mb-6 relative group">
-      <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 via-logoLime-400 to-emerald-600 opacity-30 blur-md group-hover:opacity-60 transition duration-300"></div>
-      <img src="/images/logo.png" alt="لوگو رستا" class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl object-contain bg-white shadow-lg p-2 border border-emerald-100">
+    <div class="hero-logo-wrapper">
+      <div class="hero-logo-glow"></div>
+      <img src="./assets/images/logo.png" alt="لوگو رستا" class="hero-logo-img">
     </div>
 
     <!-- Main Title -->
-    <h1 class="text-3xl sm:text-5xl font-black leading-[1.25] text-slate-900 tracking-tight max-w-3xl">
-      رستا | <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-600 via-brand-600 to-logoLime-600">روزشمار و همراه</span> ترک عادت
+    <h1 class="hero-title">
+      رستا | <span class="gradient-text">روزشمار و همراه</span> ترک عادت
     </h1>
 
     <!-- Subtitle -->
-    <p class="mt-4 text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+    <p class="hero-subtitle">
       همراه هوشمند، آفلاین و امن شما در مسیر ترک عادات ناخواسته، سنجش روزهای پاکی، بهبود سلامت و محاسبه پس‌انداز مالی.
     </p>
 
     <!-- Download Buttons Section -->
-    <div id="download" class="mt-8 w-full max-w-2xl mx-auto flex flex-col items-center">
+    <div id="download" class="download-wrapper">
       
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+      <div class="download-grid">
         
         <!-- Direct APK Download Button -->
         <a id="direct-apk-download-btn" href="https://github.com/alirezaevil81/Rasta/releases/download/v1.0.1/rasta-v1.0.1.apk" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-between px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-xs transition-all duration-200">
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24">
+           class="btn-download btn-apk">
+          <div class="btn-content-left">
+            <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.523 15.3414C17.0622 15.3414 16.6874 14.9666 16.6874 14.5058C16.6874 14.045 17.0622 13.6702 17.523 13.6702C17.9838 13.6702 18.3586 14.045 18.3586 14.5058C18.3586 14.9666 17.9838 15.3414 17.523 15.3414ZM6.47702 15.3414C6.01622 15.3414 5.64142 14.9666 5.64142 14.5058C5.64142 14.045 6.01622 13.6702 6.47702 13.6702C6.93782 13.6702 7.31262 14.045 7.31262 14.5058C7.31262 14.9666 6.93782 15.3414 6.47702 15.3414ZM17.9822 10.3802L19.689 7.42398C19.8294 7.18078 19.749 6.87038 19.5058 6.72998C19.2626 6.58958 18.9522 6.66998 18.8118 6.91318L17.0694 9.93178C15.5898 9.25598 13.8646 8.87018 12 8.87018C10.1354 8.87018 8.41022 9.25598 6.93062 9.93178L5.18822 6.91318C5.04782 6.66998 4.73742 6.58958 4.49422 6.72998C4.25102 6.87038 4.17062 7.18078 4.31102 7.42398L6.01782 10.3802C2.65862 12.2226 0.381023 15.6026 0 19.5702H24C23.619 15.6026 21.3414 12.2226 17.9822 10.3802Z"/>
             </svg>
-            <div class="text-right leading-tight">
-              <span class="block text-xs font-bold">دانلود مستقیم APK</span>
-              <span class="block text-[10px] text-emerald-100 font-normal mt-0.5">
+            <div>
+              <span class="btn-title">دانلود مستقیم APK</span>
+              <span class="btn-desc-apk">
                 <span id="apk-version-label">v1.0.1</span> • <span id="apk-size-label">۳.۱ مگابایت</span>
               </span>
             </div>
           </div>
-          <svg class="w-3.5 h-3.5 text-emerald-100 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
         </a>
 
         <!-- Cafe Bazaar Download Button -->
         <a id="cafebazaar-download-btn" href="https://cafebazaar.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-between px-3.5 py-2.5 bg-white hover:bg-slate-50 text-slate-800 rounded-xl border border-slate-200 shadow-2xs transition-all duration-200">
-          <div class="flex items-center gap-2">
-            <img src="/images/cafebazaar.png" alt="کافه‌بازار" class="w-4 h-4 object-contain shrink-0">
-            <div class="text-right leading-tight">
-              <span class="block text-xs font-bold">دانلود از کافه‌بازار</span>
-              <span class="block text-[10px] text-slate-500 font-normal mt-0.5">نسخه رسمی بازار</span>
+           class="btn-download btn-market">
+          <div class="btn-content-left">
+            <img src="./assets/images/cafebazaar.png" alt="کافه‌بازار" class="btn-icon">
+            <div>
+              <span class="btn-title">دانلود از کافه‌بازار</span>
+              <span class="btn-desc-market">نسخه رسمی بازار</span>
             </div>
           </div>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </a>
 
         <!-- Myket Download Button -->
         <a id="myket-download-btn" href="https://myket.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-between px-3.5 py-2.5 bg-white hover:bg-slate-50 text-slate-800 rounded-xl border border-slate-200 shadow-2xs transition-all duration-200">
-          <div class="flex items-center gap-2">
-            <img src="/images/myket.png" alt="مایکت" class="w-4 h-4 object-contain shrink-0">
-            <div class="text-right leading-tight">
-              <span class="block text-xs font-bold">دانلود از مایکت</span>
-              <span class="block text-[10px] text-slate-500 font-normal mt-0.5">نسخه رسمی مایکت</span>
+           class="btn-download btn-market">
+          <div class="btn-content-left">
+            <img src="./assets/images/myket.png" alt="مایکت" class="btn-icon">
+            <div>
+              <span class="btn-title">دانلود از مایکت</span>
+              <span class="btn-desc-market">نسخه رسمی مایکت</span>
             </div>
           </div>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </a>
@@ -118,9 +120,9 @@
     </div>
 
     <!-- Scroll Down Indicator -->
-    <a href="#features" aria-label="هدایت به بخش امکانات" class="absolute inset-x-0 bottom-6 flex justify-center items-center text-slate-400 hover:text-emerald-600 transition-colors">
-      <div class="p-2.5 rounded-full bg-white/80 border border-emerald-100/80 shadow-2xs animate-bounce flex items-center justify-center">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <a href="#features" aria-label="هدایت به بخش امکانات" class="scroll-indicator">
+      <div class="scroll-badge">
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
@@ -129,81 +131,81 @@
   </main>
 
   <!-- Features Grid Section -->
-  <section id="features" class="bg-white py-12 sm:py-20 border-t border-emerald-100/60">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section id="features" class="features-section">
+    <div class="features-container">
       
-      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
-        <h2 class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900">امکانات برجسته اپلیکیشن رستا</h2>
-        <p class="text-xs sm:text-base text-slate-500 mt-2 sm:mt-3">ابزارهای کامل و تخصصی برای پشتیبانی دقیق و انگیزه در مسیر ترک عادت</p>
+      <div class="features-header">
+        <h2 class="features-title">امکانات برجسته اپلیکیشن رستا</h2>
+        <p class="features-subtitle">ابزارهای کامل و تخصصی برای پشتیبانی دقیق و انگیزه در مسیر ترک عادت</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div class="features-grid">
         
         <!-- Feature 1: Shamsi Calendar -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 border border-emerald-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-emerald">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l1 1 2-2" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">پشتیبانی کامل از تقویم شمسی</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">محاسبه و نمایش دقیق روزهای پاکی و تاریخ ثبت‌ها منطبق با تقویم هجری شمسی.</p>
+          <h3 class="feature-card-title">پشتیبانی کامل از تقویم شمسی</h3>
+          <p class="feature-card-desc">محاسبه و نمایش دقیق روزهای پاکی و تاریخ ثبت‌ها منطبق با تقویم هجری شمسی.</p>
         </div>
 
         <!-- Feature 2: 100% Offline & Private -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-600 border border-teal-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-teal-600 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-teal">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">۱۰۰٪ آفلاین، امن و خصوصی</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">حفظ کامل حریم شخصی بدون نیاز به اینترنت و بدون ارسال هیچ‌گونه اطلاعات به سرور.</p>
+          <h3 class="feature-card-title">۱۰۰٪ آفلاین، امن و خصوصی</h3>
+          <p class="feature-card-desc">حفظ کامل حریم شخصی بدون نیاز به اینترنت و بدون ارسال هیچ‌گونه اطلاعات به سرور.</p>
         </div>
 
         <!-- Feature 3: Financial & Health Savings -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-lime-600/10 text-lime-700 border border-lime-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-lime-600 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a1 1 0 11-2 0 1 1 0 012 0z" />
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-lime">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 00-2 2zm7-5a1 1 0 11-2 0 1 1 0 012 0z" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">محاسبه پس‌انداز و سلامتی</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">محاسبه خودکار میزان پول پس‌اندازشده و شاخص‌های بهبود وضعیت جسمانی و سلامتی.</p>
+          <h3 class="feature-card-title">محاسبه پس‌انداز و سلامتی</h3>
+          <p class="feature-card-desc">محاسبه خودکار میزان پول پس‌اندازشده و شاخص‌های بهبود وضعیت جسمانی و سلامتی.</p>
         </div>
 
         <!-- Feature 4: Badges & Achievements -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 border border-amber-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-amber-500 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-amber">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 3h14M5 3v4a5 5 0 005 5h4a5 5 0 005-5V3M5 3H3a2 2 0 00-2 2v1a4 4 0 004 4h0M19 3h2a2 2 0 012 2v1a4 4 0 01-4 4h0M12 12v4m-4 4h8" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">مدال‌ها و دستاوردهای انگیزشی</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">دریافت مدال‌های افتخار بر اساس تعداد روزهای پاکی متوالی جهت حفظ انگیزه و روحیه.</p>
+          <h3 class="feature-card-title">مدال‌ها و دستاوردهای انگیزشی</h3>
+          <p class="feature-card-desc">دریافت مدال‌های افتخار بر اساس تعداد روزهای پاکی متوالی جهت حفظ انگیزه و روحیه.</p>
         </div>
 
         <!-- Feature 5: Emergency Relief -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-600 border border-rose-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-rose-500 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-rose">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">اورژانس مهار وسوسه (تنفس ۴-۷-۸)</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">دارای ابزار مهار وسوسه ناگهانی با تمرین تنفس ریتمیک ۴-۷-۸ و دسترسی به تماس‌های فوری.</p>
+          <h3 class="feature-card-title">اورژانس مهار وسوسه (تنفس ۴-۷-۸)</h3>
+          <p class="feature-card-desc">دارای ابزار مهار وسوسه ناگهانی با تمرین تنفس ریتمیک ۴-۷-۸ و دسترسی به تماس‌های فوری.</p>
         </div>
 
         <!-- Feature 6: Daily Journal -->
-        <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4FBF7] border border-emerald-100/80 transition-all hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 border border-indigo-200/60 flex items-center justify-center mb-4 sm:mb-6 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper icon-indigo">
+            <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
             </svg>
           </div>
-          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 sm:mb-2.5">دفترچه و یادداشت روزانه</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">امکان ثبت حس و حال روزانه، یادداشت‌برداری از تجربیات و پیگیری روند احساسی.</p>
+          <h3 class="feature-card-title">دفترچه و یادداشت روزانه</h3>
+          <p class="feature-card-desc">امکان ثبت حس و حال روزانه، یادداشت‌برداری از تجربیات و پیگیری روند احساسی.</p>
         </div>
 
       </div>
@@ -212,23 +214,23 @@
   </section>
 
   <!-- About / Footer Section -->
-  <footer id="about" class="bg-white border-t border-emerald-100/60 py-6 text-slate-500 text-xs">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+  <footer id="about" class="footer-section">
+    <div class="footer-container">
       
       <!-- Brand & Copyright -->
-      <div class="flex items-center gap-2.5">
-        <img src="/images/logo.png" alt="لوگو رستا" class="w-6 h-6 rounded-lg object-contain bg-emerald-50 border border-emerald-200/50 p-0.5 shrink-0">
-        <span class="font-bold text-slate-800 text-sm">رستا</span>
-        <span class="text-slate-300">•</span>
-        <span class="text-slate-500 text-[11px]">© ۲۰۲۶ تمامی حقوق محفوظ است</span>
+      <div class="footer-brand">
+        <img src="./assets/images/logo.png" alt="لوگو رستا" class="footer-logo">
+        <span class="footer-title">رستا</span>
+        <span class="footer-dot">•</span>
+        <span class="footer-copy">© ۲۰۲۶ تمامی حقوق محفوظ است</span>
       </div>
 
       <!-- Quick Links -->
-      <div class="flex flex-wrap items-center justify-center gap-5 font-medium text-slate-600 text-xs">
-        <a id="footer-apk-download-link" href="https://github.com/alirezaevil81/Rasta/releases/download/v1.0.1/rasta-v1.0.1.apk" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 transition-colors font-semibold">دانلود APK</a>
-        <a href="https://cafebazaar.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">کافه‌بازار</a>
-        <a href="https://myket.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">مایکت</a>
-        <a href="https://github.com/alirezaevil81/Rasta" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">گیت‌هاب</a>
+      <div class="footer-links">
+        <a id="footer-apk-download-link" href="https://github.com/alirezaevil81/Rasta/releases/download/v1.0.1/rasta-v1.0.1.apk" target="_blank" rel="noopener noreferrer" class="footer-link footer-link-highlight">دانلود APK</a>
+        <a href="https://cafebazaar.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" class="footer-link">کافه‌بازار</a>
+        <a href="https://myket.ir/app/ir.rasta.app" target="_blank" rel="noopener noreferrer" class="footer-link">مایکت</a>
+        <a href="https://github.com/alirezaevil81/Rasta" target="_blank" rel="noopener noreferrer" class="footer-link">گیت‌هاب</a>
       </div>
 
     </div>
