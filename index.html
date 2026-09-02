@@ -6,6 +6,12 @@
   <title>رستا | روزشمار و همراه ترک عادت</title>
   <meta name="description" content="رستا؛ روزشمار و همراه ترک عادت با پشتیبانی از تقویم شمسی، ۱۰۰٪ آفلاین و امن، محاسبه پس‌انداز، مدال‌های انگیزشی، تمرین تنفس اورژانسی ۴-۷-۸ و یادداشت روزانه.">
   
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="رستا | روزشمار و همراه ترک عادت">
+  <meta property="og:description" content="همراه هوشمند، آفلاین و امن شما در مسیر ترک عادات ناخواسته، سنجش روزهای پاکی، بهبود سلامت و محاسبه پس‌انداز مالی.">
+  <meta property="og:image" content="/images/logo.png">
+  
   <!-- Favicon and App Icon -->
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
@@ -17,9 +23,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- External JS Script -->
-  <script src="/src/js/main.js" defer></script>
+  <script type="module" src="/src/js/main.js"></script>
 </head>
 <body class="bg-[#F4FBF7] text-[#1E293B] font-sans antialiased selection:bg-brand-100 selection:text-brand-900 min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+  <!-- Page Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#F4FBF7] transition-opacity duration-500 ease-out select-none">
+    <div class="relative flex items-center justify-center mb-4">
+      <div class="absolute w-20 h-20 rounded-full border-2 border-emerald-500/20 border-t-emerald-600 animate-spin"></div>
+      <img src="/images/logo.png" alt="رستا" class="w-12 h-12 rounded-2xl object-contain bg-white shadow-md p-1.5 border border-emerald-100 relative z-10 animate-pulse">
+    </div>
+    <span class="text-slate-800 font-extrabold text-base tracking-wide">رستا (Rasta)</span>
+    <span class="text-xs text-emerald-700 font-medium mt-1">در حال بارگذاری...</span>
+  </div>
 
   <!-- Hero Section -->
   <main class="w-full min-h-screen min-h-[100dvh] max-w-4xl mx-auto px-4 sm:px-6 py-12 flex flex-col items-center justify-center text-center relative">
@@ -220,4 +236,3 @@
 
 </body>
 </html>
-
