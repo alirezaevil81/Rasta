@@ -1,3 +1,4 @@
 node_modules/
 metadata.json
 package.json
+bun.lock

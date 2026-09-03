@@ -61,18 +61,53 @@ function hidePreloader() {
   }
 }
 
-// Hide preloader when window fully loads or DOM is ready
+// Hide preloader strictly when window and all assets are fully loaded
 if (document.readyState === 'complete') {
   hidePreloader();
 } else {
   window.addEventListener('load', hidePreloader);
-  // Safety timeout fallback
-  setTimeout(hidePreloader, 2500);
 }
 
-// Run on DOM load for release fetching
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', fetchLatestReleaseUrl);
-} else {
-  fetchLatestReleaseUrl();
+// FAQ Accordion Handler
+function setupFaqAccordion() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.closest('.faq-item');
+      if (!faqItem) return;
+      
+      const isOpen = faqItem.classList.contains('active');
+      
+      // Close all active items
+      document.querySelectorAll('.faq-item.active').forEach(item => {
+        item.classList.remove('active');
+        const btn = item.querySelector('.faq-question');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+      
+      // Toggle current item if it was closed
+      if (!isOpen) {
+        faqItem.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }
+
+// Run on DOM load for release fetching & FAQ accordion
+function initApp() {
+  fetchLatestReleaseUrl();
+  setupFaqAccordion();
+  
+  // Initialize Lucide SVG Icons from CDN
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
