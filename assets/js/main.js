@@ -50,7 +50,10 @@ async function fetchLatestReleaseUrl() {
 }
 
 // Preloader Handler
+let preloaderHidden = false;
 function hidePreloader() {
+  if (preloaderHidden) return;
+  preloaderHidden = true;
   const preloader = document.getElementById('preloader');
   if (preloader) {
     preloader.style.opacity = '0';
@@ -61,12 +64,15 @@ function hidePreloader() {
   }
 }
 
-// Hide preloader strictly when window and all assets are fully loaded
-if (document.readyState === 'complete') {
+// Hide preloader when DOM is interactive/ready, or strictly on load, or as a safety fallback after 1.5s
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
   hidePreloader();
 } else {
+  document.addEventListener('DOMContentLoaded', hidePreloader);
   window.addEventListener('load', hidePreloader);
 }
+// Safety fallback in case some external assets (CDNs, fonts) are blocked/slow
+setTimeout(hidePreloader, 1500);
 
 // FAQ Accordion Handler
 function setupFaqAccordion() {
