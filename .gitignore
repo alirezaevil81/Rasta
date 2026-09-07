@@ -2,3 +2,5 @@ node_modules/
 metadata.json
 package.json
 bun.lock
+dist/
+.DS_Store
