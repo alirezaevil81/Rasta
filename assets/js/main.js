@@ -261,6 +261,13 @@ function setupInteractiveDemo() {
       const data = habits[habitKey];
       if (!data) return;
 
+      const demoBody = document.querySelector('.demo-body');
+      if (demoBody) {
+        demoBody.classList.remove('demo-update-anim');
+        void demoBody.offsetWidth; // trigger reflow
+        demoBody.classList.add('demo-update-anim');
+      }
+
       if (daysEl) daysEl.textContent = data.days;
       if (hoursEl) hoursEl.textContent = data.hours;
       if (badgeTitleEl) badgeTitleEl.textContent = data.badgeTitle;
@@ -544,7 +551,69 @@ function setupHaltModal() {
   });
 }
 
-// 9. Initialize Application
+// 9. Scroll Reveal Animation Engine
+function setupScrollReveal() {
+  const revealSelectors = [
+    '.hero-badge',
+    '.hero-logo-wrapper',
+    '.hero-title',
+    '.hero-subtitle',
+    '.download-wrapper',
+    '.download-trust-row',
+    '.preview-card',
+    '.section-header-centered',
+    '.geofact-card',
+    '.feature-card',
+    '.quick-highlights-box',
+    '.comparison-table-wrapper',
+    '.comp-mobile-card',
+    '.guide-step-card',
+    '.faq-item',
+    '.footer-container'
+  ];
+
+  const revealTargets = document.querySelectorAll(revealSelectors.join(', '));
+
+  revealTargets.forEach(el => {
+    el.classList.add('reveal-on-scroll');
+
+    // Add staggered delay for child items inside grids
+    const parent = el.parentElement;
+    if (parent && (
+      parent.classList.contains('features-grid') ||
+      parent.classList.contains('guide-stepper-grid') ||
+      parent.classList.contains('geofacts-container') ||
+      parent.classList.contains('download-grid') ||
+      parent.classList.contains('comp-mobile-list')
+    )) {
+      const childIndex = Array.from(parent.children).indexOf(el);
+      if (childIndex >= 0) {
+        el.style.transitionDelay = `${(childIndex % 4) * 80}ms`;
+      }
+    }
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    revealTargets.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  revealTargets.forEach(el => observer.observe(el));
+}
+
+// 10. Initialize Application
 function initApp() {
   fetchLatestReleaseUrl();
   setupFaqAccordion();
@@ -554,6 +623,7 @@ function initApp() {
   setupBreathingExercise();
   setupUrgeSurfingExercise();
   setupHaltModal();
+  setupScrollReveal();
   
   // Re-render Lucide icons for all static and dynamically added tags
   if (typeof lucide !== 'undefined' && lucide.createIcons) {
