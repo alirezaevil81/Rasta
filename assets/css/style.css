@@ -2462,6 +2462,7 @@ button {
 
 /* 15. Floating Coffee Support Pill - Stable, Crisp & Butter-Smooth (No Jitter) */
 
+#floating-coffee-pill,
 .floating-coffee-pill {
   position: fixed;
   bottom: 1.35rem;
@@ -2489,14 +2490,17 @@ button {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   /* Hardware acceleration & text sharpness guarantees */
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
+  perspective: 1000px;
 }
 
+#floating-coffee-pill:hover,
 .floating-coffee-pill:hover {
-  transform: translateY(-3px) translateZ(0);
+  transform: translate3d(0, -3px, 0);
   background-color: #fffdf5;
   color: #92400e;
   border-color: rgba(217, 119, 6, 0.45);
@@ -2505,8 +2509,9 @@ button {
     0 3px 8px -1px rgba(15, 23, 42, 0.06);
 }
 
+#floating-coffee-pill:active,
 .floating-coffee-pill:active {
-  transform: translateY(-1px) scale(0.98) translateZ(0);
+  transform: translate3d(0, -1px, 0) scale(0.98);
   box-shadow: 0 2px 6px -1px rgba(217, 119, 6, 0.18);
   transition-duration: 0.08s;
 }
@@ -2514,10 +2519,10 @@ button {
 /* Icon Avatar Wrap - Smooth Subtle Organic Pulse (Only on the icon badge) */
 @keyframes iconBadgeBreath {
   0%, 100% {
-    transform: scale(1) translateZ(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: scale(1.05) translateZ(0);
+    transform: translate3d(0, 0, 0) scale(1.05);
   }
 }
 
@@ -2534,9 +2539,11 @@ button {
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 1px 3px rgba(217, 119, 6, 0.12);
+  transform: translate3d(0, 0, 0);
   animation: iconBadgeBreath 3.6s ease-in-out infinite;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .floating-coffee-icon {
@@ -2545,17 +2552,20 @@ button {
   color: #b45309;
   display: inline-block;
   transform-origin: center bottom;
+  transform: translate3d(0, 0, 0);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .floating-coffee-pill:hover .floating-coffee-icon-wrap {
   animation-play-state: paused;
-  transform: scale(1.1) translateZ(0);
+  transform: translate3d(0, 0, 0) scale(1.1);
   background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
 }
 
 .floating-coffee-pill:hover .floating-coffee-icon {
-  transform: rotate(-10deg) scale(1.06);
+  transform: translate3d(0, 0, 0) rotate(-10deg) scale(1.06);
   color: #92400e;
 }
 
@@ -2586,7 +2596,10 @@ button {
   border-radius: 50%;
   background: rgba(217, 119, 6, 0.6);
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
   will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .dot-1 {
@@ -2610,8 +2623,11 @@ button {
   letter-spacing: -0.01em;
   line-height: 1;
   display: inline-block;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
 }
 
 /* Minimalist Outbound Indicator Arrow */
@@ -2622,7 +2638,9 @@ button {
   opacity: 0.65;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .floating-coffee-pill:hover .floating-coffee-arrow {
@@ -3020,4 +3038,16 @@ button {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* 16.11 Iframe & Embedded Environment Adaptations */
+html.is-embedded,
+body.is-embedded {
+  min-height: auto;
+  overflow-x: hidden;
+}
+
+.is-embedded .floating-coffee-pill {
+  bottom: 1rem;
+  left: 1rem;
 }

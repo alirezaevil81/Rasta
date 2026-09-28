@@ -613,7 +613,80 @@ function setupScrollReveal() {
   revealTargets.forEach(el => observer.observe(el));
 }
 
-// 10. Initialize Application
+// 10. IFrame Embedding Compatibility & Parent Messaging
+function setupIframeCompatibility() {
+  const isEmbedded = window.self !== window.top;
+
+  if (isEmbedded) {
+    document.documentElement.classList.add('is-embedded');
+    document.body.classList.add('is-embedded');
+  }
+
+  // Ensure all outbound links open safely in a new tab when in an iframe
+  function secureExternalLinks() {
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      // If external link (http/https/market/tel/mailto) or specific market downloads
+      if (
+        href.startsWith('http://') ||
+        href.startsWith('https://') ||
+        href.startsWith('market://') ||
+        href.startsWith('tel:') ||
+        href.startsWith('mailto:')
+      ) {
+        // If not linking to an internal page anchor on the same site
+        if (!href.startsWith('#')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    });
+  }
+
+  secureExternalLinks();
+
+  // Send height update to parent window for auto-resizing iframe containers
+  if (isEmbedded) {
+    function notifyParentHeight() {
+      try {
+        const height = Math.max(
+          document.body.scrollHeight,
+          document.documentElement.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.offsetHeight
+        );
+        window.parent.postMessage({ type: 'rasta:resize', height: height }, '*');
+      } catch (e) {
+        // Ignore cross-origin postMessage errors
+      }
+    }
+
+    window.addEventListener('load', notifyParentHeight);
+    window.addEventListener('resize', notifyParentHeight, { passive: true });
+
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(() => notifyParentHeight());
+      ro.observe(document.body);
+    }
+
+    // Listen for parent messages (e.g. navigation or height queries)
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'rasta:query_height') {
+        notifyParentHeight();
+      } else if (e.data && e.data.type === 'rasta:scroll_to' && typeof e.data.target === 'string') {
+        const targetEl = document.querySelector(e.data.target);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+}
+
+// 11. Initialize Application
 function initApp() {
   fetchLatestReleaseUrl();
   setupFaqAccordion();
@@ -624,6 +697,7 @@ function initApp() {
   setupUrgeSurfingExercise();
   setupHaltModal();
   setupScrollReveal();
+  setupIframeCompatibility();
   
   // Re-render Lucide icons for all static and dynamically added tags
   if (typeof lucide !== 'undefined' && lucide.createIcons) {
