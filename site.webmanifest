@@ -1,7 +1,7 @@
 {
-  "name": "رستا - اپلیکیشن ترک عادت",
-  "short_name": "رستا",
-  "description": "همراه هوشمند و رایگان ترک عادت با تقویم شمسی",
+  "name": "رستا | روزشمار هوشمند پاکی و ترک عادت",
+  "short_name": "روزشمار رستا",
+  "description": "روزشمار هوشمند و رایگان ترک عادت و روزهای پاکی با تقویم شمسی",
   "icons": [
     {
       "src": "./assets/images/icon-192x192.png",
@@ -29,7 +29,7 @@
     }
   ],
   "start_url": "./",
-  "theme_color": "#6d4aff",
+  "theme_color": "#059669",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait"
